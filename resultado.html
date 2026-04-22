@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Óraculo diz...</title>
+    <link rel="icon" href="img/favicon.png"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container result-container">
+        <h1>O Veredito do Oráculo</h1>
+        
+        <div class="intro-text" style="text-align: center;">
+            <p>O sangue dos deuses corre em suas veias, <span id="nome-usuario">semideus</span>.</p>
+            <p>Seu destino é grandioso, semideus. O Óraculo finalmente determina que seu pai é...<br></p>
+        </div>
+
+        <div id="deus-vencedor">
+            <h2 id="nome-deus">Carregando...</h2>
+        </div>
+
+        <div class="pontuacao-grid" id="lista-pontuacao">
+            </div>
+
+        <button onclick="window.location.href='index.html'">Reiniciar o teste</button>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get('nome');
+        const vencedor = params.get('vencedor');
+        const pontuacao = JSON.parse(decodeURIComponent(params.get('pontuacao')));
+
+        document.getElementById('nome-usuario').textContent = nome;
+        document.getElementById('nome-deus').textContent = vencedor;
+
+        const grid = document.getElementById('lista-pontuacao');
+        for (const [deus, pontos] of Object.entries(pontuacao)) {
+            const chip = document.createElement('div');
+            chip.className = `score-chip ${deus.toLowerCase()}`;
+            chip.textContent = `${deus}: ${pontos} pts`;
+            grid.appendChild(chip);
+        }
+    </script>
+</body>
+</html>

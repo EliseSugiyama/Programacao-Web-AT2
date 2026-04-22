@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Consulta ao Óraculo</title>
+    <link rel="icon" href="img/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <h1>O Oráculo dos Deuses</h1>
 
-    <input type="text" id="nome" placeholder="Digite seu nome...">
-    <button id="iniciarQuiz">Começar</button> 
+<body>
+
+    <div class="container">
+        <h1>O Óraculo dos Deuses</h1>
+        <div class="intro-text">
+            <p>Você sempre sentiu que não se encaixava no mundo comum, e agora finalmente está entre os seus: no Acampamento Meio-Sangue.<br>
+            Mas ainda resta uma dúvida... Afinal, quem é o seu parentesco divino, semideus? Será ele um dos Três Grandes?</p>
+            <p>Responda ao chamado do Oráculo e descubra qual dos <strong>Três Grandes</strong> é o seu progenitor divino.</p>
+        </div>
+        <input type="text" id="nome" placeholder="Digite seu nome...">
+        <button id="iniciarQuiz">Começar</button> 
+    </div>
+
 
     <script>
         comecarQuiz = document.getElementById("iniciarQuiz");
         comecarQuiz.addEventListener("click", function(){
             const nome = document.getElementById("nome").value;
-            if(nome === ""){
+            if (nome === "") {
                 alert("Por favor, digite seu nome para começar o quiz!");
-            } else if (isNaN(nome) == false || nome.length < 3) { 
+            } else if (isNaN(nome) == false || nome.length <= 3) {
                 alert("Por favor, digite um nome válido para começar o quiz!");
             } else {
                 window.location.href = `quiz.html?nome=${encodeURIComponent(nome)}`;
             }
-        }); 
+        });
     </script>
+
 </body>
+
 </html>

@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Consulta ao Óraculo</title>
+    <link rel="icon" href="img/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
-<div id="quiz">
-<template id="item-quiz">
-    <h3>Pergunta 1</h3>
-    <dl>
-        <dt>
-            <input type="radio" name="item" value="0">
-            <span>Resposta A</span>
-        </dt>
-    </dl>
-</template>
+<body>
+
+<div class="container">
+    <div id="quiz">
+        <template id="item-quiz">
+            <h3>Pergunta 1</h3>
+            <dl>
+                <dt>
+                    <label style="display: flex; align-items: center; width: 100%; cursor: pointer;">
+                        <input type="radio" name="item" value="0">
+                        <span>Resposta A</span>
+                    </label>
+                </dt>
+            </dl>
+        </template>
+    </div>
 </div>
 
-<body>
-    <button id="mostrarResultado">Ver Resultado!</button>
+    <button id="mostrarResultado">Ver resultado!</button>
     <p id="resultado"></p>
-
 
     <script src="script.js"></script>
 </body>
+
 </html>
