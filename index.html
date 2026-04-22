@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+</head>
+<body>
+    <h1>O Oráculo dos Deuses</h1>
+
+    <input type="text" id="nome" placeholder="Digite seu nome...">
+    <button id="iniciarQuiz">Começar</button> 
+
+    <script>
+        comecarQuiz = document.getElementById("iniciarQuiz");
+        comecarQuiz.addEventListener("click", function(){
+            const nome = document.getElementById("nome").value;
+            if(nome === ""){
+                alert("Por favor, digite seu nome para começar o quiz!");
+            } else if (isNaN(nome) == false || nome.length < 3) { 
+                alert("Por favor, digite um nome válido para começar o quiz!");
+            } else {
+                window.location.href = `quiz.html?nome=${encodeURIComponent(nome)}`;
+            }
+        }); 
+    </script>
+</body>
+</html>
